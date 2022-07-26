@@ -1,45 +1,75 @@
 
-const UL_PADRE = document.querySelector('#padre_item');
-const PREV = document.querySelector('#but_prev');
-const NEXT = document.querySelector('#but_next');
+// salviamo tutti gli elementi dentro alle variabili costanti
+const DOM_UL_FATHER = document.querySelector('#padre_item');
+const DOM_BUTTON_PREV = document.querySelector('#but_prev');
+const DOM_BUTTON_NEXT = document.querySelector('#but_next');
 
-const links_img = [];
-let ELEMENTS_DOM = [];
+// creiamo delle array per salvataggio degli elementi da creare
+let DOM_LI_ELEMENTS_CREATED = [];
 
-for (let i = 1; i <= 5; i++) {
-    links_img.push(`./assets/img/0${i}.jpg`);
-}
+// assegnamo la quantità di elementi da creare
+const NUM_IMG_FOR_INSERT = 5;
 
-for (let i = 0; i < links_img.length; i++) {
-    const li = document.createElement('li');
-    li.className = 'item';
+// creaiamo una variabile di tipo number per usarlo come indice che cambiera sempre
+let index_img = 0;
+
+
+// un for per la creazione del layout
+for (let i = 0; i < NUM_IMG_FOR_INSERT; i++) {
+
+    // creaiamo un elemento di tipo <li></li>
+    const _li_create = document.createElement('li');
+    // creaiamo un elemento di tipo <img>
+    const _img_create = document.createElement('img');
+
+    // assegnamo classi di partenza agli elementi
+    _li_create.className = 'item';
+    _img_create.className = 'img-fluid';
+
+    // assegnamo ai primi elementi creati le classi per l'attivazione
     if (i === 0) {
-        li.classList.add('active');
+        _li_create.classList.add('active');
     }
-    const img = document.createElement('img');
-    img.className = 'img-fluid';
-    img.src = links_img[i];
-    li.append(img);
-    ELEMENTS_DOM.push(li);
-    UL_PADRE.append(li);
+
+    // assegnamo alla <img> creata al src il link da prender l'immagine
+    _img_create.src = `./assets/img/0${i+1}.jpg`;
+
+    // pushamo dentro a una array per tenerla salvata
+    DOM_LI_ELEMENTS_CREATED.push(_li_create);
+
+    // appendiamo agli elementi nel DOM
+    _li_create.append(_img_create);
+    DOM_UL_FATHER.append(_li_create);
 }
 
-let index = 0;
 
-PREV.addEventListener('click', () => {
-    if (index > 0) {
-        ELEMENTS_DOM[index].classList.remove('active');
-        ELEMENTS_DOM[index - 1].classList.add('active');
+// al click del pulsante precedente
+DOM_BUTTON_PREV.addEventListener('click', () => {
+    // se index_img e maggiore del valore 0
+    if (index_img > 0) {
+        // rimuovi le classi per l'attivazione da quella presente
+        DOM_LI_ELEMENTS_CREATED[index_img].classList.remove('active');
 
-        index--;
+        // aggiungi le classi per l'attivazione a quella precedente
+        DOM_LI_ELEMENTS_CREATED[index_img - 1].classList.add('active');
+
+        // incrementiamo in meno di 1 l'index_img
+        index_img--;
     }
 });
 
-NEXT.addEventListener('click', () => {
-    if (index < ELEMENTS_DOM.length - 1) {
-        ELEMENTS_DOM[index].classList.remove('active');
-        ELEMENTS_DOM[index + 1].classList.add('active');
 
-        index++;
+// al click del pulsante prossegui
+DOM_BUTTON_NEXT.addEventListener('click', () => {
+    // se index_img e minore del valore della lunghezza del array - 1
+    if (index_img < DOM_LI_ELEMENTS_CREATED.length - 1) {
+        // rimuovi le classi per l'attivazione da quella presente
+        DOM_LI_ELEMENTS_CREATED[index_img].classList.remove('active');
+
+        // aggiungi le classi per l'attivazione a quella che prossegue
+        DOM_LI_ELEMENTS_CREATED[index_img + 1].classList.add('active');
+
+        // incrementiamo in più di 1 l'index_img
+        index_img++;
     }
 });
