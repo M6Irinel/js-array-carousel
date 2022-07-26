@@ -67,3 +67,7 @@ ul {
 #selects .selector_img:hover {
     background-color: antiquewhite;
 }
+
+#selects .selector_img.active_img {
+    background-color: aqua;
+}
