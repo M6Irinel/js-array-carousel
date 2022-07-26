@@ -36,7 +36,7 @@ ul {
     padding: 0 20px;
 }
 
-button {
+.button_next_prev {
     border: none;
     background: none;
     font-size: 40px;
@@ -44,6 +44,26 @@ button {
     border-radius: 20px;
 }
 
-button:hover {
+.button_next_prev:hover {
     background-color: #80808064;
+}
+
+#selects {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#selects .selector_img {
+    width: 30px;
+    margin: 0 10px;
+    border-radius: 50%;
+    aspect-ratio: 1;
+    background: none;
+    border: none;
+}
+
+#selects .selector_img:hover {
+    background-color: antiquewhite;
 }

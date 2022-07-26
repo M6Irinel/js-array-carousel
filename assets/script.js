@@ -1,5 +1,4 @@
 
-// prendiamo dal dom l'elemento per far inserire gli item
 const UL_PADRE = document.querySelector('#padre_item');
 const PREV = document.querySelector('#but_prev');
 const NEXT = document.querySelector('#but_next');
@@ -42,6 +41,5 @@ NEXT.addEventListener('click', () => {
         ELEMENTS_DOM[index + 1].classList.add('active');
 
         index++;
-        console.log('VA');
     }
 });
