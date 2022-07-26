@@ -1,6 +1,8 @@
 
 // prendiamo dal dom l'elemento per far inserire gli item
 const UL_PADRE = document.querySelector('#padre_item');
+const PREV = document.querySelector('#but_prev');
+const NEXT = document.querySelector('#but_next');
 
 const links_img = [];
 let ELEMENTS_DOM = [];
@@ -22,4 +24,19 @@ for (let i = 0; i < links_img.length; i++) {
     ELEMENTS_DOM.push(li);
     UL_PADRE.append(li);
 }
-console.log(ELEMENTS_DOM);
+
+let index = 0;
+
+PREV.addEventListener('click', ()=>{
+    ELEMENTS_DOM[index].classList.remove('active');
+    ELEMENTS_DOM[index - 1].classList.add('active');
+
+    index--;
+});
+
+NEXT.addEventListener('click', ()=>{
+    ELEMENTS_DOM[index].classList.remove('active');
+    ELEMENTS_DOM[index + 1].classList.add('active');
+
+    index++;
+});
