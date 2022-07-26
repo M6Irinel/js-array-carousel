@@ -12,7 +12,8 @@ ul {
 
 .img-fluid {
     width: 100%;
-    object-fit: contain;
+    height: 600px;
+    object-fit: cover;
     object-position: center;
 }
 

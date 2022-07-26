@@ -14,7 +14,7 @@ for (let i = 1; i <= 5; i++) {
 for (let i = 0; i < links_img.length; i++) {
     const li = document.createElement('li');
     li.className = 'item';
-    if(i === 0){
+    if (i === 0) {
         li.classList.add('active');
     }
     const img = document.createElement('img');
@@ -27,16 +27,21 @@ for (let i = 0; i < links_img.length; i++) {
 
 let index = 0;
 
-PREV.addEventListener('click', ()=>{
-    ELEMENTS_DOM[index].classList.remove('active');
-    ELEMENTS_DOM[index - 1].classList.add('active');
+PREV.addEventListener('click', () => {
+    if (index > 0) {
+        ELEMENTS_DOM[index].classList.remove('active');
+        ELEMENTS_DOM[index - 1].classList.add('active');
 
-    index--;
+        index--;
+    }
 });
 
-NEXT.addEventListener('click', ()=>{
-    ELEMENTS_DOM[index].classList.remove('active');
-    ELEMENTS_DOM[index + 1].classList.add('active');
+NEXT.addEventListener('click', () => {
+    if (index < ELEMENTS_DOM.length - 1) {
+        ELEMENTS_DOM[index].classList.remove('active');
+        ELEMENTS_DOM[index + 1].classList.add('active');
 
-    index++;
+        index++;
+        console.log('VA');
+    }
 });
