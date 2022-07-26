@@ -26,7 +26,7 @@ for (let i = 0; i < LINKS_IMG.length; i++) {
     UL_PADRE.append(li);
 
     const button = document.createElement('button');
-    button.textContent = i + 1;
+    // button.textContent = i + 1;
     button.className = 'selector_img';
     button.setAttribute('num', i);
     if(i === 0){
@@ -41,7 +41,6 @@ let index = 0;
 for (let i = 0; i < BUTTON_ELEMENTI.length; i++) {
     BUTTON_ELEMENTI[i].addEventListener('click', ()=>{
         index = parseInt(BUTTON_ELEMENTI[i].getAttribute('num'));
-        console.log(index);
         for (let f = 0; f < ELEMENTS_DOM.length; f++) {
             ELEMENTS_DOM[f].classList.remove('active');
             BUTTON_ELEMENTI[f].classList.remove('active_img');

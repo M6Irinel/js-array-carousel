@@ -56,18 +56,18 @@ ul {
 }
 
 #selects .selector_img {
-    width: 30px;
+    width: 15px;
     margin: 0 10px;
     border-radius: 50%;
     aspect-ratio: 1;
-    background: none;
-    border: none;
+    background: rgba(128, 128, 128, 0.537);
+    border: 1px solid black;
 }
 
 #selects .selector_img:hover {
-    background-color: antiquewhite;
+    background-color: #4b4b4b;
 }
 
 #selects .selector_img.active_img {
-    background-color: aqua;
+    background-color: #e88149;
 }
